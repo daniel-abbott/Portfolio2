@@ -1,19 +1,15 @@
 <script>
-	import Nav from './Nav.svelte';
-	export let name;
+	import Nav from './components/Nav.svelte';
 </script>
 
 <style>
 	.app {
 		display: flex;
-	}
-	h1 {
-		color: purple;
+		flex-flow: column nowrap;
 	}
 </style>
 
 <div class="app">
 	<Nav />
-	<h1>Hello {name}!</h1>
+	<h1>Hello world!</h1>
 </div>
-
