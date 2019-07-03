@@ -8,6 +8,8 @@
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
+		background-color: whitesmoke;
+		height: 100%;
 	}
 </style>
 
