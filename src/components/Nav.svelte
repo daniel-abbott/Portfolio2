@@ -10,10 +10,13 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
+        position: -webkit-sticky;
         position: sticky;
+        top: 0;
         background-color: black;
         color: white;
         width: 100%;
+        box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.2);
     }
     ul {
         display: flex;
