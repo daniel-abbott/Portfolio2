@@ -8,16 +8,29 @@
 </script>
 
 <style>
-    div {
+    .cardList {
+        display: flex;
+        flex-flow: column nowrap;
         background-color: white;
         width: 95%;
         margin-bottom: 1em;
     }
+    .cardList-title {
+
+    }
+    .cardList-cards {
+        display: flex;
+        flex-flow: row wrap;
+    }
 </style>
 
-<div>
-    <h1>{title}</h1>
-    {#each cards as card}
-        <Card image={card.image} title={card.title} description={card.description} />
-    {/each}
+<div class="cardList">
+    <div class="cardList-title">
+        <h1>{title}</h1>
+    </div>
+    <div class="cardList-cards">
+        {#each cards as card}
+            <Card width={cardWidth} image={card.image} title={card.title} description={card.description} />
+        {/each}
+    </div>
 </div>
