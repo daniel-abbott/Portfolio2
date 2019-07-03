@@ -14,9 +14,10 @@
         background-color: white;
         width: 95%;
         margin-bottom: 1em;
+        border-radius: 0.3em;
     }
     .cardList-title {
-
+        padding-left: 0.5em;
     }
     .cardList-cards {
         display: flex;
