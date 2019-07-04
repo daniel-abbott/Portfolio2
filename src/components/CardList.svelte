@@ -15,6 +15,7 @@
         width: 95%;
         margin-bottom: 1em;
         border-radius: 0.3em;
+        z-index: 1;
     }
     .cardList-title {
         padding-left: 0.5em;
@@ -22,6 +23,8 @@
     .cardList-cards {
         display: flex;
         flex-flow: row wrap;
+        justify-content: space-between;
+        padding: 0.5em;
     }
 </style>
 

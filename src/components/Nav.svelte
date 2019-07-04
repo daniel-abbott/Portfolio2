@@ -17,6 +17,7 @@
         color: white;
         width: 100%;
         box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.2);
+        z-index: 100;
     }
     ul {
         display: flex;

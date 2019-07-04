@@ -8,6 +8,7 @@
         width: 95%;
         margin-bottom: 1em;
         border-radius: 0.3em;
+        z-index: 1;
     }
     .textblock-text {
         padding-left: 0.5em;

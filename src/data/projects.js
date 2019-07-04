@@ -1,5 +1,5 @@
 const projects = {
-    width: "128px",
+    width: "320px",
     cards: [
         {
             image: "/content/testpic.png",
@@ -10,9 +10,21 @@ const projects = {
         {
             image: "/content/testpic.png",
             title: "ShooterGame",
-            description: "A top-down arcade shooter project being developed in the Godot engine",
+            description: "A top-down arcade shooter project being developed in the Godot engine.",
             fullDescription: "Long text goes here"
-        }
+        },
+        {
+            image: "/content/testpic.png",
+            title: "Line Test",
+            description: "Adding another line in.",
+            fullDescription: "Long text goes here"
+        },
+        {
+            image: "/content/testpic.png",
+            title: "Line Test",
+            description: "Adding another line in.",
+            fullDescription: "Long text goes here"
+        },
     ]
 }
 

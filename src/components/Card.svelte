@@ -28,6 +28,7 @@
         animation-name: upscale;
         animation-duration: 0.2s;
         transform: scale(1.05);
+        cursor: pointer;
     }
     
     .card-text {
