@@ -25,6 +25,14 @@
     }
     a {
         margin-left: 1em;
+        color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        color: orange;
+    }
+    a:focus {
+        color: orangered;
     }
 </style>
     
