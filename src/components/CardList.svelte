@@ -2,6 +2,7 @@
     import Card from './Card.svelte';
     export let title;
     export let cardObject;
+    export let id;
 
     const cardWidth = cardObject.width;
     const cards = cardObject.cards;
@@ -28,7 +29,7 @@
     }
 </style>
 
-<div class="cardList">
+<section id={id} class="cardList">
     <div class="cardList-title">
         <h1>{title}</h1>
     </div>
@@ -37,4 +38,4 @@
             <Card width={cardWidth} image={card.image} title={card.title} description={card.description} />
         {/each}
     </div>
-</div>
+</section>

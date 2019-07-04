@@ -1,5 +1,6 @@
 <script>
     export let title;
+    export let id;
 </script>
 
 <style>
@@ -15,9 +16,9 @@
     }
 </style>
 
-<div class="textblock">
+<section id={id} class="textblock">
     <div class="textblock-text">
         <h1>{title}</h1>
         <p>Words</p>
     </div>
-</div>
+</section>

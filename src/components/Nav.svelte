@@ -31,10 +31,10 @@
 <div>
     <h3>Daniel Abbott</h3>
     <ul>
-        <a href="null">About</a>
-        <a href="null">Projects</a>
-        <a href="null">Blog</a>
-        <a href="null">Contributions</a>
-        <a href="null">Contact</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contrib">Contributions</a>
+        <a href="#contact">Contact</a>
     </ul>
 </div>

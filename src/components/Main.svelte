@@ -16,9 +16,9 @@
 </style>
 
 <div>
-    <TextBlock title="About" />
-    <CardList title="Projects" cardObject={projects} />
-    <CardList title="Blog" cardObject={blog} />
-    <CardList title="Contributions" cardObject={contributions} />
-    <TextBlock title="Contact" />
+    <TextBlock id="about" title="About" />
+    <CardList id="projects" title="Projects" cardObject={projects} />
+    <CardList id="blog" title="Blog" cardObject={blog} />
+    <CardList id="contrib" title="Contributions" cardObject={contributions} />
+    <TextBlock id="contact" title="Contact" />
 </div>
