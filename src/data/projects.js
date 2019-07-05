@@ -1,5 +1,6 @@
 const projects = {
     width: "320px",
+    height: "480px",
     cards: [
         {
             image: "/content/testpic.png",

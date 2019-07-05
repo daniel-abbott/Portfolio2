@@ -5,6 +5,7 @@
     export let id;
 
     const cardWidth = cardObject.width;
+    const cardHeight = cardObject.height;
     const cards = cardObject.cards;
 </script>
 
@@ -35,7 +36,7 @@
     </div>
     <div class="cardList-cards">
         {#each cards as card}
-            <Card width={cardWidth} image={card.image} title={card.title} description={card.description} />
+            <Card width={cardWidth} height={cardHeight} image={card.image} title={card.title} description={card.description} />
         {/each}
     </div>
 </section>

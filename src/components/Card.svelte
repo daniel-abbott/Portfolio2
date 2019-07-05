@@ -1,36 +1,46 @@
 <script>
-    export let width;
+    export let width = 100;
+    export let height = 100;
     export let image;
     export let title;
     export let description;
 </script>
 
 <style>
-    @keyframes upscale {
-        from {transform: scale(1);}
-        to {transform: scale(1.05);}
-    }
-    @keyframes downscale {
-        from {transform: scale(1.05);}
-        to {transform: scale(1);}
-    }
     .card {
-        animation-name: downscale;
-        animation-duration: 0.2s;
+        perspective: 1000px;
         background-color: white;
-        width: var(--width);
         margin: 0.5em;
+    }
+        .card:hover .flip-card, .card.hover .flip-card {
+            transform: rotateY(180deg);
+        }
+    .card, .front, .back {
+        width: var(--width);
+        height: var(--height);
+    }
+    .flip-card {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+
+        position: relative;
+    }
+    .front, .back {
+        backface-visibility: hidden;
         border: 1px solid gray;
         border-radius: 0.3em;
-        /* box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.1); */
+        position: absolute;
+        top: 0;
+        left: 0;
     }
-    .card:hover {
-        animation-name: upscale;
-        animation-duration: 0.2s;
-        transform: scale(1.05);
-        cursor: pointer;
+    .front {
+        z-index: 2;
+        transform: rotateY(0deg);
     }
-    
+    .back {
+        background-color: lightgray;
+        transform: rotateY(180deg);
+    }
     .card-text {
         padding-left: 0.2em;
         padding-right: 0.2em;
@@ -41,12 +51,19 @@
     }
 </style>
 
-<div class= "card" style="--width: {width}">
-    {#if image}
-        <img src={image} alt="placeholder" width="100%" />
-    {/if}
-    <div class="card-text">
-        <h3>{title}</h3>
-        <p>{description}</p>
+<div class="card" style="--width: {width}; --height: {height};" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-card">
+        <div class="front">
+            {#if image}
+                <img src={image} alt="placeholder" width="100%" />
+            {/if}
+            <div class="card-text">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+        </div>
+        <div class="back">
+            Test!
+        </div>
     </div>
 </div>

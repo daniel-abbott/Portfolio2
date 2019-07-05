@@ -1,5 +1,6 @@
 const contributions = {
     width: "320px",
+    height: "480px",
     cards: [
         {
             image: "/content/testpic.png",

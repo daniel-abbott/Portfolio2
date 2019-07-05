@@ -1,8 +1,32 @@
 <script>
-    
+    // let links = document.getElementsByTagName("a");
+    // for (let link of links) {
+    //     console.log(link)
+    // }
+    // const addAnim = () => {
+    //     link.classList.add('animated');
+    //     link.removeEventListener('mouseover', addAnim);
+    // }
+    // link.addEventListener('mouseover', addAnim);
 </script>
 
 <style>
+    @keyframes mouseOver {
+        from {
+            color: black;
+        }
+        to {
+            color: orange;
+        }
+    }
+    @keyframes mouseLeave {
+        from {
+            color: orange;
+        }
+        to {
+            color: black;
+        }
+    }
     h3 {
         padding-left: 2em;
     }
@@ -13,8 +37,7 @@
         position: -webkit-sticky;
         position: sticky;
         top: 0;
-        background-color: black;
-        color: white;
+        background-color: white;
         width: 100%;
         box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.2);
         z-index: 100;
@@ -24,18 +47,22 @@
         padding-right: 2em;
     }
     a {
+        animation-name: mouseLeave;
+        animation-duration: 0.2s;
         margin-left: 1em;
-        color: white;
+        color: black;
         text-decoration: none;
     }
     a:hover {
+        animation-name: mouseOver;
+        animation-duration: 0.2s;
         color: orange;
     }
-    a:focus {
+    a:active {
         color: orangered;
     }
 </style>
-    
+
 <div>
     <h3>Daniel Abbott</h3>
     <ul>
