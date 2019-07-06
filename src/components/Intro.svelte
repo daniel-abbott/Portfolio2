@@ -17,7 +17,7 @@
 
 <style>
     .centered {
-        font-size: 20vw;
+        font-size: 4em;
         position: absolute;
         left: 50%;
         top: 50%;

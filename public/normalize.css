@@ -8,6 +8,16 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+:root {
+  scroll-behavior:smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
