@@ -1,7 +1,25 @@
 <script>
+	import Intro from './components/Intro.svelte';
 	import Nav from './components/Nav.svelte';
 	import Main from './components/Main.svelte';
 	import Footer from './components/Footer.svelte';
+
+	import { onMount } from 'svelte';
+
+	let intro = false;
+	let showApp = false;
+
+	onMount(() => {
+		intro = true;
+	})
+
+	const loadApp = () => {
+		intro = false;
+		setTimeout(() => {
+			showApp=true;
+		}, 1000);
+		//showApp = true;
+	}
 </script>
 
 <style>
@@ -21,8 +39,12 @@
 </style>
 
 <main class="app">
+	{#if intro}
+	<Intro loadApp={loadApp} />
+	{/if}
+	{#if showApp}
 	<Nav />
-	<img src="content/testpic.png" width="100%" height="400px" />
 	<Main />
 	<Footer />
+	{/if}
 </main>

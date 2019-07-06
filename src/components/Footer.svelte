@@ -1,3 +1,7 @@
+<script>
+    import { fade } from 'svelte/transition';
+</script>
+
 <style>
     div {
         display: flex;
@@ -8,6 +12,6 @@
     }
 </style>
 
-<div>
+<div in:fade="{{delay: 800, duration: 800}}">
     (C) 2019 Daniel Abbott
 </div>

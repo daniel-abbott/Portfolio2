@@ -1,13 +1,5 @@
 <script>
-    // let links = document.getElementsByTagName("a");
-    // for (let link of links) {
-    //     console.log(link)
-    // }
-    // const addAnim = () => {
-    //     link.classList.add('animated');
-    //     link.removeEventListener('mouseover', addAnim);
-    // }
-    // link.addEventListener('mouseover', addAnim);
+    import { fly } from 'svelte/transition';
 </script>
 
 <style>
@@ -63,7 +55,7 @@
     }
 </style>
 
-<div>
+<div in:fly="{{y: -100, duration: 1000}}">
     <h3>Daniel Abbott</h3>
     <ul>
         <a href="#about">About</a>

@@ -1,4 +1,6 @@
 <script>
+    import { fade } from 'svelte/transition';
+
     export let width = 100;
     export let height = 100;
     export let image;
@@ -9,7 +11,6 @@
 <style>
     .card {
         perspective: 1000px;
-        background-color: white;
         margin: 0.5em;
     }
         .card:hover .flip-card, .card.hover .flip-card {
@@ -22,10 +23,10 @@
     .flip-card {
         transition: 0.6s;
         transform-style: preserve-3d;
-
         position: relative;
     }
     .front, .back {
+        /* box-shadow: 2px 2px 2px black; */
         backface-visibility: hidden;
         border: 1px solid gray;
         border-radius: 0.3em;
@@ -34,6 +35,7 @@
         left: 0;
     }
     .front {
+        background-color: white;
         z-index: 2;
         transform: rotateY(0deg);
     }
@@ -51,7 +53,7 @@
     }
 </style>
 
-<div class="card" style="--width: {width}; --height: {height};" ontouchstart="this.classList.toggle('hover');">
+<div in:fade="{{delay: 1200, duration: 800}}" class="card" style="--width: {width}; --height: {height};" ontouchstart="this.classList.toggle('hover');">
     <div class="flip-card">
         <div class="front">
             {#if image}

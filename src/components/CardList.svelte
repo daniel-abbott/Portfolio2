@@ -1,5 +1,6 @@
 <script>
     import Card from './Card.svelte';
+
     export let title;
     export let cardObject;
     export let id;
@@ -35,7 +36,7 @@
         <h1>{title}</h1>
     </div>
     <div class="cardList-cards">
-        {#each cards as card}
+        {#each cards as card, i}
             <Card width={cardWidth} height={cardHeight} image={card.image} title={card.title} description={card.description} />
         {/each}
     </div>
