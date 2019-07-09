@@ -2,7 +2,7 @@
     import { fade, fly } from 'svelte/transition';
 
     export let loadApp;
-    let name = 'DANIEL ABBOTT';
+    const name = 'DANIEL ABBOTT';
     let counter = 0;
 
     const countUp = () => {
@@ -26,6 +26,7 @@
         color: black;
         font-weight: 100;
         text-align: center;
+        background-color: transparent;
     }
 
     .centered span {

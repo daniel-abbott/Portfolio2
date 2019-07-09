@@ -8,12 +8,13 @@
 
 <style>
     .textblock {
+        color: white;
         position: absolute;
         top: 0;
-        background-color: white;
+        background-color: rgb(58, 58, 129);
         width: 95%;
-        margin-bottom: 1em;
-        border-radius: 0.3em;
+        /* margin-bottom: 1em; */
+        /* border-radius: 0.3em; */
         z-index: 1;
     }
     .textblock-text {

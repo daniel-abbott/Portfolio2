@@ -11,11 +11,11 @@
 
 	const stateChangeDuration = 800;
 	const appStates = {
-		ABOUT: 'about',
-		PROJECTS: 'projects',
-		BLOG: 'blog',
-		CONTRIB: 'contributions',
-		CONTACT: 'contact'
+		ABOUT: 0,
+		PROJECTS: 1,
+		BLOG: 2,
+		CONTRIB: 3,
+		CONTACT: 4
 	}
 
 	let currentState = appStates.ABOUT;
@@ -33,7 +33,8 @@
 	}
 
 	const changeState = (state) => {
-        console.log(state);
+		if (state === currentState) return;
+        // console.log(state);
         switch (state) {
             case 0:
                 currentState = appStates.ABOUT;
@@ -59,10 +60,11 @@
 
 <style>
 	.app {
+		position: absolute;
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
-		background-color: whitesmoke;
+		background-color: white;
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;

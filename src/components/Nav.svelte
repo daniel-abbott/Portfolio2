@@ -30,6 +30,7 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
+        align-items: center;
         background-color: white;
         width: 100%;
         box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.1);
@@ -49,6 +50,7 @@
         color: black;
         text-decoration: none;
         cursor: pointer;
+        font-weight: normal
     }
     span:hover {
         animation-name: mouseOver;

@@ -11,45 +11,45 @@
 </script>
 
 <style>
-    @keyframes scaleCardOut {
+    @keyframes cardMouseEnter {
         from {
-            transform: scale(1.0);
+            flood-color: transparent
         }
         to {
-            transform: scale(1.01);
+            flood-color: aliceblue;
         }
     }
-    @keyframes scaleCardIn {
+    @keyframes cardMouseLeave {
         from {
-            transform: scale(1.01);
+            flood-color: aliceblue;
         }
         to {
-            transform: scale(1.0);
+            flood-color: transparent;
         }
     }
     .card {
-        animation-name: scaleCardIn;
+        position: relative;
+        animation-name: cardMouseLeave;
         animation-duration: 0.5s;
         background-color: white;
         margin: 0.5em;
         width: var(--width);
         height: var(--height);
-        border: 1px solid black;
-        border-radius: 0.3em;
-        transform: scale(1.0);
+        /* border: 1px solid white; */
+        /* border-radius: 0.8em; */
         overflow: hidden;
+        /* transform: scale(1.0); */
     }
     .card:hover {
-        animation-name: scaleCardOut;
+        animation-name: cardMouseEnter;
         animation-duration: 0.5s;
-        transform: scale(1.01);
     }
     .card-text {
         position: absolute;
         bottom: 0;
         left: 0;
-        padding-left: 0.2em;
-        padding-right: 0.2em;
+        padding-left: 0.5em;
+        /* padding-right: 1em; */
         background-color: rgba(255, 255, 255, 1);
         width: 100%;
         /* box-shadow: 0px -1px 5px blue; */

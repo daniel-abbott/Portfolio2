@@ -13,8 +13,11 @@
         z-index: 1;
         /* background-color: white; */
     }
+    span {
+        font-size: 12px;
+    }
 </style>
 
 <div in:fade="{{delay: 800, duration: 800}}">
-    (C) 2019 Daniel Abbott
+    <span>(C) 2019 Daniel Abbott</span>
 </div>

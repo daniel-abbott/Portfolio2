@@ -14,6 +14,7 @@
 
 <style>
     main {
+        background: transparent;
         margin-top: 2vh;
         position: relative;
         display: flex;
@@ -22,6 +23,20 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        z-index: 1;
+    }
+    main:after {
+        background:orange;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 20%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transform: skewY(-4.8deg);
+        transform-origin: 100%;
+        z-index: -1;
     }
 </style>
 

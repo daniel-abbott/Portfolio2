@@ -18,11 +18,15 @@
         top: 0;
         display: flex;
         flex-flow: column nowrap;
-        background-color: white;
+        background-color: rgb(58, 58, 129);
+        color: white;
         width: 95%;
+        /* height: 100%; */
         /* margin-bottom: 1em; */
-        border-radius: 0.3em;
+        /* border-radius: 0.3em; */
         z-index: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     .cardList-title {
         padding-left: 0.5em;
@@ -32,6 +36,7 @@
         flex-flow: row wrap;
         justify-content: space-between;
         padding: 0.5em;
+        color: black;
     }
 </style>
 
