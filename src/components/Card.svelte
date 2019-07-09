@@ -56,11 +56,11 @@
     }
 </style>
 
-<div on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 1200, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
+<div on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 800, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
     {#if image}
         <img src={image} alt="placeholder" width="100%" height="100%"/>
     {/if}
-    {#if hovered}
+    {#if hovered || !image}
     <div transition:fly="{{ y:100, duration: 600 }}" class="card-text">
         <h3 transition:fly="{{ y:100, duration: 800 }}">{title}</h3>
         <p transition:fly="{{ y:100, duration: 1000 }}">{description}</p>

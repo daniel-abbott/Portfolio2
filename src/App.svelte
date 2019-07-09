@@ -7,11 +7,22 @@
 	import { onMount } from 'svelte';
 
 	let intro = false;
-	let showApp = false;
+	let showApp = true;
 
-	onMount(() => {
-		intro = true;
-	})
+	const stateChangeDuration = 800;
+	const appStates = {
+		ABOUT: 'about',
+		PROJECTS: 'projects',
+		BLOG: 'blog',
+		CONTRIB: 'contributions',
+		CONTACT: 'contact'
+	}
+
+	let currentState = appStates.ABOUT;
+
+	// onMount(() => {
+	// 	intro = true;
+	// })
 
 	const loadApp = () => {
 		intro = false;
@@ -20,6 +31,30 @@
 		}, 1000);
 		//showApp = true;
 	}
+
+	const changeState = (state) => {
+        console.log(state);
+        switch (state) {
+            case 0:
+                currentState = appStates.ABOUT;
+                break;
+            case 1:
+                currentState = appStates.PROJECTS;
+                break;
+            case 2:
+                currentState = appStates.BLOG;
+                break;
+            case 3:
+                currentState = appStates.CONTRIB;
+                break;
+            case 4:
+                currentState = appStates.CONTACT;
+				break;
+			default:
+				currentState = appStates.ABOUT;
+				break;
+        }
+    }
 </script>
 
 <style>
@@ -28,7 +63,9 @@
 		flex-flow: column nowrap;
 		align-items: center;
 		background-color: whitesmoke;
-		height: 100%;
+		width: 100%;
+		height: 100vh;
+		overflow: hidden;
 	}
 	img {
         margin-bottom: 1em;
@@ -40,11 +77,11 @@
 
 <main class="app">
 	{#if intro}
-	<Intro loadApp={loadApp} />
+		<Intro loadApp={loadApp} />
 	{/if}
 	{#if showApp}
-	<Nav />
-	<Main />
-	<Footer />
+		<Nav changeState={changeState} currentState={currentState} appStates={appStates} />
+		<Main stateChangeDuration={stateChangeDuration} currentState={currentState} appStates={appStates} />
+		<Footer />
 	{/if}
 </main>

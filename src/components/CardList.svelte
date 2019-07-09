@@ -1,9 +1,11 @@
 <script>
     import Card from './Card.svelte';
+    import { fly } from 'svelte/transition';
 
     export let title;
     export let cardObject;
     export let id;
+    export let stateChangeDuration;
 
     const cardWidth = cardObject.width;
     const cardHeight = cardObject.height;
@@ -12,11 +14,13 @@
 
 <style>
     .cardList {
+        position: absolute;
+        top: 0;
         display: flex;
         flex-flow: column nowrap;
         background-color: white;
         width: 95%;
-        margin-bottom: 1em;
+        /* margin-bottom: 1em; */
         border-radius: 0.3em;
         z-index: 1;
     }
@@ -31,7 +35,7 @@
     }
 </style>
 
-<section id={id} class="cardList">
+<section transition:fly="{{ y: 1000, duration: stateChangeDuration }}" id={id} class="cardList">
     <div class="cardList-title">
         <h1>{title}</h1>
     </div>
