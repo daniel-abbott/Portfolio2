@@ -1,71 +1,69 @@
 <script>
-    import { fade } from 'svelte/transition';
+    import { fade, fly } from 'svelte/transition';
 
     export let width = 100;
     export let height = 100;
     export let image;
     export let title;
     export let description;
+
+    let hovered = false;
 </script>
 
 <style>
-    .card {
-        perspective: 1000px;
-        margin: 0.5em;
-    }
-        .card:hover .flip-card, .card.hover .flip-card {
-            transform: rotateY(180deg);
+    @keyframes scaleCardOut {
+        from {
+            transform: scale(1.0);
         }
-    .card, .front, .back {
+        to {
+            transform: scale(1.01);
+        }
+    }
+    @keyframes scaleCardIn {
+        from {
+            transform: scale(1.01);
+        }
+        to {
+            transform: scale(1.0);
+        }
+    }
+    .card {
+        animation-name: scaleCardIn;
+        animation-duration: 0.5s;
+        background-color: white;
+        margin: 0.5em;
         width: var(--width);
         height: var(--height);
-    }
-    .flip-card {
-        transition: 0.6s;
-        transform-style: preserve-3d;
-        position: relative;
-    }
-    .front, .back {
-        /* box-shadow: 2px 2px 2px black; */
-        backface-visibility: hidden;
-        border: 1px solid gray;
+        border: 1px solid black;
         border-radius: 0.3em;
-        position: absolute;
-        top: 0;
-        left: 0;
+        transform: scale(1.0);
+        overflow: hidden;
     }
-    .front {
-        background-color: white;
-        z-index: 2;
-        transform: rotateY(0deg);
-    }
-    .back {
-        background-color: lightgray;
-        transform: rotateY(180deg);
+    .card:hover {
+        animation-name: scaleCardOut;
+        animation-duration: 0.5s;
+        transform: scale(1.01);
     }
     .card-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         padding-left: 0.2em;
         padding-right: 0.2em;
-    }
-    img {
-        border-top-left-radius: 0.3em;
-        border-top-right-radius: 0.3em;
+        background-color: rgba(255, 255, 255, 1);
+        width: 100%;
+        /* box-shadow: 0px -1px 5px blue; */
     }
 </style>
 
-<div in:fade="{{delay: 1200, duration: 800}}" class="card" style="--width: {width}; --height: {height};" ontouchstart="this.classList.toggle('hover');">
-    <div class="flip-card">
-        <div class="front">
-            {#if image}
-                <img src={image} alt="placeholder" width="100%" />
-            {/if}
-            <div class="card-text">
-                <h3>{title}</h3>
-                <p>{description}</p>
-            </div>
-        </div>
-        <div class="back">
-            Test!
-        </div>
+<div on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 1200, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
+    {#if image}
+        <img src={image} alt="placeholder" width="100%" height="100%"/>
+    {/if}
+    {#if hovered}
+    <div transition:fly="{{ y:100, duration: 600 }}" class="card-text">
+        <h3 transition:fly="{{ y:100, duration: 800 }}">{title}</h3>
+        <p transition:fly="{{ y:100, duration: 1000 }}">{description}</p>
     </div>
+    {/if}
 </div>
