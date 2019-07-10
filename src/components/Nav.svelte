@@ -33,7 +33,7 @@
         align-items: center;
         background-color: var(--nav-color);
         width: 100%;
-        box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow);
         z-index: 100;
     }
     h3 {

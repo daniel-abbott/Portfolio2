@@ -13,24 +13,24 @@
 <style>
     @keyframes cardMouseEnter {
         from {
-            flood-color: transparent
+            box-shadow: 0;
         }
         to {
-            flood-color: aliceblue;
+            box-shadow: 0px 5px 5px black;
         }
     }
     @keyframes cardMouseLeave {
         from {
-            flood-color: aliceblue;
+            box-shadow: 0px 5px 5px black;
         }
         to {
-            flood-color: transparent;
+            box-shadow: 0;
         }
     }
     .card {
         position: relative;
-        animation-name: cardMouseLeave;
-        animation-duration: 0.5s;
+        /* animation-name: cardMouseLeave;
+        animation-duration: 0.5s; */
         background-color: var(--secondary-body-color);
         margin: 0.5em;
         width: var(--width);
@@ -39,10 +39,12 @@
         border-radius: 0.8em;
         overflow: hidden;
         /* transform: scale(1.0); */
+        box-shadow: 0;
     }
     .card:hover {
-        animation-name: cardMouseEnter;
-        animation-duration: 0.5s;
+        /* animation-name: cardMouseEnter;
+        animation-duration: 0.5s; */
+        box-shadow: var(--shadow);
     }
     .card-text {
         background-color: inherit;
