@@ -64,11 +64,25 @@
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
-		background-color: white;
+		background-color: var(--main-background-color);
 		width: 100%;
 		height: 100vh;
 		overflow: hidden;
+		z-index: 1;
 	}
+	.app:after {
+        background:var(--secondary-background-color);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 20%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transform: skewY(-4.8deg);
+        transform-origin: 100%;
+        z-index: -1;
+    }
 	img {
         margin-bottom: 1em;
         /* position: sticky; */

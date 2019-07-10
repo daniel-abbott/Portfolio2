@@ -31,12 +31,12 @@
         position: relative;
         animation-name: cardMouseLeave;
         animation-duration: 0.5s;
-        background-color: white;
+        background-color: var(--secondary-body-color);
         margin: 0.5em;
         width: var(--width);
         height: var(--height);
         /* border: 1px solid white; */
-        /* border-radius: 0.8em; */
+        border-radius: 0.8em;
         overflow: hidden;
         /* transform: scale(1.0); */
     }
@@ -45,14 +45,15 @@
         animation-duration: 0.5s;
     }
     .card-text {
+        background-color: inherit;
         position: absolute;
         bottom: 0;
         left: 0;
         padding-left: 0.5em;
         /* padding-right: 1em; */
-        background-color: rgba(255, 255, 255, 1);
         width: 100%;
         /* box-shadow: 0px -1px 5px blue; */
+        color: var(--secondary-text-color);
     }
 </style>
 

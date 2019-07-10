@@ -18,25 +18,34 @@
         top: 0;
         display: flex;
         flex-flow: column nowrap;
-        background-color: rgb(58, 58, 129);
         color: white;
         width: 95%;
+        max-height: 90%;
         /* height: 100%; */
         /* margin-bottom: 1em; */
-        /* border-radius: 0.3em; */
+        border-radius: 0.8em;
         z-index: 1;
         overflow-y: auto;
         overflow-x: hidden;
     }
     .cardList-title {
-        padding-left: 0.5em;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+        background-color: var(--main-header-color);
+        padding: 0.5em;
+        color: var(--main-title-color);
     }
     .cardList-cards {
+        background-color: var(--main-body-color);
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
         padding: 0.5em;
-        color: black;
+        color: var(--main-text-color);
+    }
+    h1 {
+        margin: 0;
     }
 </style>
 

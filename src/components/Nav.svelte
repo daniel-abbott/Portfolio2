@@ -9,18 +9,18 @@
 <style>
     @keyframes mouseOver {
         from {
-            color: black;
+            color: var(--nav-text-color);
         }
         to {
-            color: orange;
+            color: var(--nav-highlight-color);
         }
     }
     @keyframes mouseLeave {
         from {
-            color: orange;
+            color: var(--nav-highlight-color);
         }
         to {
-            color: black;
+            color: var(--nav-text-color);
         }
     }
     nav {
@@ -31,7 +31,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
-        background-color: white;
+        background-color: var(--nav-color);
         width: 100%;
         box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.1);
         z-index: 100;
@@ -47,7 +47,7 @@
         animation-name: mouseLeave;
         animation-duration: 0.2s;
         margin-left: 1em;
-        color: black;
+        color: var(--nav-text-color);
         text-decoration: none;
         cursor: pointer;
         font-weight: normal
@@ -55,10 +55,10 @@
     span:hover {
         animation-name: mouseOver;
         animation-duration: 0.2s;
-        color: orange;
+        color: var(--nav-highlight-color);
     }
     span:active {
-        color: orangered;
+        color: var(--nav-click-color);
     }
 </style>
 

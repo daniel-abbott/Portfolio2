@@ -11,6 +11,7 @@
         flex-direction: row-reverse;
         width: 100%;
         z-index: 1;
+        color: var(--footer-text-color);
         /* background-color: white; */
     }
     span {

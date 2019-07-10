@@ -1,6 +1,6 @@
 const blog = {
     width: "100%",
-    height: "100px",
+    height: "92px",
     cards: [
         {
             //image: "Placeholder 1",

@@ -16,6 +16,10 @@
 </script>
 
 <style>
+    .intro-back {
+        width: 100%;
+        height: 100%;
+    }
     .centered {
         font-size: 4em;
         position: absolute;
@@ -28,14 +32,16 @@
         text-align: center;
         background-color: transparent;
     }
-
     .centered span {
         will-change: filter;
+        cursor: default;
     }
 </style>
 
-<div class="centered" out:fly="{{y: -20, duration: 800}}">
-    {#each name as char, i}
-        <span on:introend="{() => countUp()}" in:fade="{{delay: 1000 + i * 300, duration: 1000}}">{char}</span>
-    {/each}
+<div on:click="{loadApp}" class="intro-back">
+    <div class="centered" out:fly="{{y: -20, duration: 800}}">
+        {#each name as char, i}
+            <span on:introend="{() => countUp()}" in:fade="{{delay: 1000 + i * 300, duration: 1000}}">{char}</span>
+        {/each}
+    </div>
 </div>
