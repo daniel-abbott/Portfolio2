@@ -1,11 +1,12 @@
 <script>
     import { fade, fly } from 'svelte/transition';
+    import { getContext } from 'svelte';
 
     export let width = 100;
     export let height = 100;
-    export let image;
-    export let title;
-    export let description;
+    export let data;
+
+    const activateModal = getContext('activateModal');
 
     let hovered = false;
 </script>
@@ -36,15 +37,16 @@
         width: var(--width);
         height: var(--height);
         /* border: 1px solid white; */
-        border-radius: 0.8em;
+        border-radius: var(--standard-radius);
         overflow: hidden;
-        /* transform: scale(1.0); */
         box-shadow: 0;
+        cursor: pointer;
     }
     .card:hover {
-        /* animation-name: cardMouseEnter;
-        animation-duration: 0.5s; */
         box-shadow: var(--shadow);
+    }
+    .card:active {
+        transform: scale(0.99);
     }
     .card-text {
         background-color: inherit;
@@ -59,14 +61,14 @@
     }
 </style>
 
-<div on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 800, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
-    {#if image}
-        <img src={image} alt="placeholder" width="100%" height="100%"/>
+<div on:click="{() => activateModal(data)}" on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 800, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
+    {#if data.image}
+        <img src={data.image} alt="placeholder" width="100%" height="100%"/>
     {/if}
-    {#if hovered || !image}
+    {#if hovered || !data.image}
     <div transition:fly="{{ y:100, duration: 600 }}" class="card-text">
-        <h3 transition:fly="{{ y:100, duration: 800 }}">{title}</h3>
-        <p transition:fly="{{ y:100, duration: 1000 }}">{description}</p>
+        <h3 transition:fly="{{ y:100, duration: 800 }}">{data.title}</h3>
+        <p transition:fly="{{ y:100, duration: 1000 }}">{data.description}</p>
     </div>
     {/if}
 </div>

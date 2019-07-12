@@ -11,12 +11,11 @@
     .textblock {
         display: flex;
         flex-flow: column wrap;
-        
         position: absolute;
         top: 0;
         width: 95%;
         /* margin-bottom: 1em; */
-        border-radius: 0.8em;
+        border-radius: var(--standard-radius);
         z-index: 1;
         overflow: hidden;
     }

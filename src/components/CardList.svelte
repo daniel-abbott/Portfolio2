@@ -23,15 +23,11 @@
         max-height: 90%;
         /* height: 100%; */
         /* margin-bottom: 1em; */
-        border-radius: 0.8em;
+        border-radius: var(--standard-radius);
         z-index: 1;
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow: hidden;
     }
     .cardList-title {
-        z-index: 2;
-        position: sticky;
-        top: 0;
         background-color: var(--main-header-color);
         padding: 0.5em;
         color: var(--main-title-color);
@@ -43,6 +39,7 @@
         justify-content: space-between;
         padding: 0.5em;
         color: var(--main-text-color);
+        overflow: auto;
     }
     h1 {
         margin: 0;
@@ -55,7 +52,7 @@
     </div>
     <div class="cardList-cards">
         {#each cards as card, i}
-            <Card width={cardWidth} height={cardHeight} image={card.image} title={card.title} description={card.description} />
+            <Card width={cardWidth} height={cardHeight} data={card} />
         {/each}
     </div>
 </section>

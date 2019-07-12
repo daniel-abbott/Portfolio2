@@ -3,8 +3,9 @@
 	import Nav from './components/Nav.svelte';
 	import Main from './components/Main.svelte';
 	import Footer from './components/Footer.svelte';
+	import Modal from './components/Modal.svelte';
 
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	let intro = false;
 	let showApp = true;
@@ -16,9 +17,17 @@
 		BLOG: 2,
 		CONTRIB: 3,
 		CONTACT: 4
-	}
+	};
 
-	let currentState = appStates.ABOUT;
+	let currentState = appStates.BLOG;
+
+	let modalActive = true;
+	let modalData = {
+		image: null,
+        title: "No data loaded!",
+        description: "No data loaded!",
+        fullDescription: "No data loaded!"
+	}; // fallback data
 
 	// onMount(() => {
 	// 	intro = true;
@@ -30,10 +39,11 @@
 			showApp=true;
 		}, 1000);
 		//showApp = true;
-	}
+	};
 
 	const changeState = (state) => {
 		if (state === currentState) return;
+		if (modalActive) modalActive = false;
         // console.log(state);
         switch (state) {
             case 0:
@@ -55,7 +65,18 @@
 				currentState = appStates.ABOUT;
 				break;
         }
-    }
+	};
+
+	const activateModal = (data) => {
+		modalData = data;
+		modalActive = true;
+	};
+
+	const closeModal = () => {
+		modalActive = false;
+	};
+
+	setContext('activateModal', activateModal);
 </script>
 
 <style>
@@ -96,8 +117,11 @@
 		<Intro loadApp={loadApp} />
 	{/if}
 	{#if showApp}
-		<Nav changeState={changeState} currentState={currentState} appStates={appStates} />
-		<Main stateChangeDuration={stateChangeDuration} currentState={currentState} appStates={appStates} />
+		<Nav {changeState} {currentState} {appStates} />
+		<Main {stateChangeDuration} {currentState} {appStates} />
 		<Footer />
+	{/if}
+	{#if modalActive}
+		<Modal {closeModal} {modalData} />
 	{/if}
 </main>

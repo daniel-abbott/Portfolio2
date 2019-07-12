@@ -29,14 +29,14 @@
 
 <main transition:fly="{{ y: 100, delay: 800, duration: 800 }}">
     {#if currentState === appStates.ABOUT}
-        <TextBlock stateChangeDuration={stateChangeDuration} id="about" title="About" textObject={about} />
+        <TextBlock {stateChangeDuration} id="about" title="About" textObject={about} />
     {:else if currentState === appStates.PROJECTS}
-        <CardList stateChangeDuration={stateChangeDuration} id="projects" title="Projects" cardObject={projects} />
+        <CardList {stateChangeDuration} id="projects" title="Projects" cardObject={projects} />
     {:else if currentState === appStates.BLOG}
-        <CardList stateChangeDuration={stateChangeDuration} id="blog" title="Blog" cardObject={blog} />
+        <CardList {stateChangeDuration} id="blog" title="Blog" cardObject={blog} />
     {:else if currentState === appStates.CONTRIB}
-        <CardList stateChangeDuration={stateChangeDuration} id="contrib" title="Contributions" cardObject={contributions} />
+        <CardList {stateChangeDuration} id="contrib" title="Contributions" cardObject={contributions} />
     {:else if currentState === appStates.CONTACT}
-        <TextBlock stateChangeDuration={stateChangeDuration} id="contact" title="Contact" />
+        <TextBlock {stateChangeDuration} id="contact" title="Contact" />
     {/if}
 </main>
