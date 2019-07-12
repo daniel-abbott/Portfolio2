@@ -14,10 +14,10 @@
 <style>
     @keyframes cardMouseEnter {
         from {
-            box-shadow: 0;
+            transform: scale(1.0);
         }
         to {
-            box-shadow: 0px 5px 5px black;
+            transform: scale(2.0);
         }
     }
     @keyframes cardMouseLeave {
@@ -58,6 +58,11 @@
         width: 100%;
         /* box-shadow: 0px -1px 5px blue; */
         color: var(--secondary-text-color);
+        pointer-events: none;
+    }
+    img:hover {
+        animation-name: cardMouseEnter;
+        animation-duration: 60s;
     }
 </style>
 

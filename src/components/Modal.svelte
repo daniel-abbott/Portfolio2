@@ -1,5 +1,5 @@
 <script>
-    import { scale } from 'svelte/transition';
+    import { fade, scale } from 'svelte/transition';
     import { quintOut } from 'svelte/easing';
 
     export let modalData;
@@ -23,6 +23,14 @@
             color: var(--nav-text-color);
         }
     }
+    .modal-background {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        z-index: 90;
+        pointer-events: none;
+    }
     .modal {
         display: flex;
         flex-flow: column nowrap;
@@ -38,6 +46,7 @@
         color: var(--secondary-text-color);
         border-radius: var(--standard-radius);
         overflow: hidden;
+        pointer-events: all;
     }
     .modal-title {
         width: 100%;
@@ -78,12 +87,14 @@
     }
 </style>
 
-<div class="modal" transition:scale="{{ duration: 800, easing: quintOut }}">
-    <div class="modal-title">
-        <h2>{modalData.title}</h2>
-        <span class="modal-close" on:click={closeModal}>Close</span>
-    </div>
-    <div class="modal-text">
-        <p>{@html modalData.fullDescription}</p>
+<div transition:fade="{{ duration: 400 }}" class="modal-background">
+    <div class="modal" transition:scale="{{ duration: 800, easing: quintOut }}">
+        <div class="modal-title">
+            <h2>{modalData.title}</h2>
+            <span class="modal-close" on:click={closeModal}>Close</span>
+        </div>
+        <div class="modal-text">
+            <p>{@html modalData.fullDescription}</p>
+        </div>
     </div>
 </div>
