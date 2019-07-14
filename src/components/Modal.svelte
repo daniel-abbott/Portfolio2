@@ -42,7 +42,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 100;
-        background-color: var(--secondary-body-color);
         color: var(--secondary-text-color);
         border-radius: var(--standard-radius);
         overflow: hidden;
@@ -70,6 +69,7 @@
     .modal-text {
         display: flex;
         flex-flow: row wrap;
+        background-color: var(--secondary-body-color);
         /* padding-left: 1em; */
         /* padding-right: 1em; */
         /* background-color: red; */
