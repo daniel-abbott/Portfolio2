@@ -17,15 +17,15 @@
             transform: scale(1.0);
         }
         to {
-            transform: scale(2.0);
+            transform: scale(1.1);
         }
     }
     @keyframes cardMouseLeave {
         from {
-            box-shadow: 0px 5px 5px black;
+            transform: scale(1.1);
         }
         to {
-            box-shadow: 0;
+            transform: scale(1.0);
         }
     }
     .card {
@@ -62,7 +62,8 @@
     }
     img:hover {
         animation-name: cardMouseEnter;
-        animation-duration: 60s;
+        animation-duration: 2s;
+        transform: scale(1.1);
     }
 </style>
 
