@@ -5,6 +5,7 @@
     export let title;
     export let textObject;
     export let id;
+    export let about = false;
 </script>
 
 <style>
@@ -37,11 +38,21 @@
         /* background-color: rgb(58, 58, 129); */
     }
     .hero-image {
+        /* animation: imageScroll 4s linear infinite; */
         width: 100%;
         height: 500px;
         background-image: var(--background-image);
-        background-repeat: no-repeat;
+        background-repeat: repeat-x;
         background-size: cover;
+        background-position: 0px 0px;
+    }
+    @keyframes imageScroll {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 100% 0;
+        }
     }
 </style>
 
@@ -51,6 +62,9 @@
     </div>
     {#if textObject.image}
         <div class="hero-image" style="--background-image: url({textObject.image});" alt="placeholder" />
+        {#if about}
+            <p>PPPPPP</p>
+        {/if}
     {/if}
     <div class="textblock-text">
         <p>{@html textObject.text}</p>

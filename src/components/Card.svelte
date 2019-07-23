@@ -12,26 +12,8 @@
 </script>
 
 <style>
-    @keyframes cardMouseEnter {
-        from {
-            transform: scale(1.0);
-        }
-        to {
-            transform: scale(1.1);
-        }
-    }
-    @keyframes cardMouseLeave {
-        from {
-            transform: scale(1.1);
-        }
-        to {
-            transform: scale(1.0);
-        }
-    }
     .card {
         position: relative;
-        /* animation-name: cardMouseLeave;
-        animation-duration: 0.5s; */
         background-color: var(--secondary-body-color);
         margin: 0.5em;
         width: var(--width);
@@ -60,16 +42,19 @@
         color: var(--secondary-text-color);
         pointer-events: none;
     }
-    img:hover {
-        animation-name: cardMouseEnter;
-        animation-duration: 2s;
+    img {
+        transition: transform 1s ease-out;
+        -webkit-transition: transform 1s ease-out;
+    }
+    .mouseEnter {
         transform: scale(1.1);
+        -webkit-transform: scale(1.1);
     }
 </style>
 
 <div on:click="{() => activateModal(data)}" on:mouseleave="{() => hovered=false}" on:mouseenter="{() => hovered=true}" in:fade="{{ delay: 800, duration: 800 }}" class="card" style="--width: {width}; --height: {height};">
     {#if data.image}
-        <img src={data.image} alt="placeholder" width="100%" height="100%"/>
+        <img src={data.image} class="{hovered ? 'mouseEnter' : ''}" alt={data.altText} width="100%" height="100%"/>
     {/if}
     {#if hovered || !data.image}
     <div transition:fly="{{ y:100, duration: 600 }}" class="card-text">

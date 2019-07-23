@@ -7,22 +7,6 @@
 </script>
 
 <style>
-    @keyframes mouseOver {
-        from {
-            color: var(--nav-text-color);
-        }
-        to {
-            color: var(--nav-highlight-color);
-        }
-    }
-    @keyframes mouseLeave {
-        from {
-            color: var(--nav-highlight-color);
-        }
-        to {
-            color: var(--nav-text-color);
-        }
-    }
     .modal-background {
         height: 100%;
         width: 100%;
@@ -57,14 +41,15 @@
     }
     .modal-close {
         cursor: pointer;
-        animation-name: mouseLeave;
-        animation-duration: 0.2s;
         padding-right: 0.5em;
+        color: var(--nav-color);
+        transition: color 0.2s ease-out;
     }
     .modal-close:hover {
-        animation-name: mouseOver;
-        animation-duration: 0.2s;
         color: var(--nav-highlight-color);
+    }
+    .modal-close:active {
+        color: var(--nav-click-color);
     }
     .modal-text {
         display: flex;

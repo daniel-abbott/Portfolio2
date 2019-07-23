@@ -7,22 +7,6 @@
 </script>
 
 <style>
-    @keyframes mouseOver {
-        from {
-            color: var(--nav-text-color);
-        }
-        to {
-            color: var(--nav-highlight-color);
-        }
-    }
-    @keyframes mouseLeave {
-        from {
-            color: var(--nav-highlight-color);
-        }
-        to {
-            color: var(--nav-text-color);
-        }
-    }
     nav {
         position: -webkit-sticky;
         position: sticky;
@@ -44,17 +28,14 @@
         padding-right: 2em;
     }
     span {
-        animation-name: mouseLeave;
-        animation-duration: 0.2s;
         margin-left: 1em;
         color: var(--nav-text-color);
+        transition: color 0.2s ease-out;
         text-decoration: none;
         cursor: pointer;
-        font-weight: normal
+        font-weight: normal;
     }
     span:hover {
-        animation-name: mouseOver;
-        animation-duration: 0.2s;
         color: var(--nav-highlight-color);
     }
     span:active {
